@@ -10,7 +10,7 @@ void array_rand_num_2D(int **&tab, int n, int m, int min_val, int max_val);
 void show_array_2D(int **tab, int n, int m);
 void selection_sort(int* tab, int n);
 void bubble_sort(int* tab, int n);
-void wstaw_sort(int* tab, int n);
+void insertion_sort(int* tab, int n);
 int main()
 {
     int a;
@@ -27,6 +27,7 @@ int main()
         cin >> a;
     }
     switch(a){
+    //Selection sort O(n^2)
     case 1:
         {
             int n;
@@ -39,6 +40,7 @@ int main()
             show_array_int(tab, n);
         }
     break;
+    //Bubble sort O(n^2)
     case 2:
         {
             int n;
@@ -51,6 +53,7 @@ int main()
             show_array_int(tab, n);
         }
     break;
+    //Insertion sort O(n^2)
     case 3:
         {
             int n;
@@ -59,7 +62,7 @@ int main()
             int tab[n];
             array_rand_num(tab, n, 1, 10);
             show_array_int(tab, n);
-            wstaw_sort(tab,n);
+            insertion_sort(tab,n);
             show_array_int(tab, n);
         }
     break;
@@ -107,13 +110,10 @@ void array_rand_num_2D(int **&tab, int n, int m, int min_val, int max_val){
     }
 }
 void selection_sort(int* tab, int n){
-    for(int i = 0; i < n-1; i++)
-    {
+    for(int i = 0; i < n-1; i++){
         int ind = i;
-        for(int j = i+1; j < n; j++)
-        {
-            if (tab[j] < tab[ind])
-            {
+        for(int j = i+1; j < n; j++){
+            if (tab[j] < tab[ind]){
                 ind = j;
             }
         }
@@ -121,27 +121,22 @@ void selection_sort(int* tab, int n){
     }
 }
 void bubble_sort(int* tab, int n){
-    for(int i = 0; i < n - 1; i++)
-    {
-        for(int j = 0; j < n - i; j++)
-        {
-            if (tab[j] > tab[j+1])
-            {
+    for(int i = 0; i < n - 1; i++){
+        for(int j = 0; j < n - i; j++){
+            if (tab[j] > tab[j+1]){
                 swap(tab[j], tab[j+1]);
             }
         }
     }
 }
-void wstaw_sort(int* tab, int n){
-    for(int i = n-2; i >= 0; i--)
-    {
+void insertion_sort(int* tab, int n){
+    for(int i = 1; i < n; i++){
         int temp = tab[i];
-        int j = i;
-        while(j < n-1 && tab[j+1] < temp)
-        {
-            tab[j] = tab[j+1];
-            j++;
+        int j = i - 1;
+        while(j > 0 && tab[j] > temp){
+            tab[j + 1] = tab[j];
+            j--;
         }
-        tab[j] = temp;
+        tab[j + 1] = temp;
     }
 }
