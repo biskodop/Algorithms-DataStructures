@@ -111,7 +111,6 @@ void FrenchFlag(int* x, int n, int gr1, int gr2, int &ind1,int &ind2)
             i++;
             swap(x[i], x[j]);
             j++;
-            cout<<"Swap"<<endl;
         }
         else if(x[j] > gr2)
         {
