@@ -74,22 +74,22 @@ void show_array(float *tab, int n){
     for(int i = 0; i < n; i++){
         cout << tab[i] <<" ";
     }
-    cout<<""<<endl;
+    cout<<endl;
 }
 void show_array_int(int *tab, int n){
     for(int i = 0; i < n; i++){
         cout << tab[i] <<" ";
     }
-    cout<<""<<endl;
+    cout<<endl;
 }
 void show_array_2D(int *tab[], int n, int m){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
             cout << tab[i][j] <<" ";
         }
-        cout<<""<<endl;
+        cout<<endl;
     }
-    cout<<""<<endl;
+    cout<<endl;
 }
 void array_rand_num(int *tab, int tab_size, int min_val, int max_val){
     srand(time(NULL));
